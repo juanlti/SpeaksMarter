@@ -21,9 +21,9 @@ return new class extends Migration
             //relaciones
             //La entidad Lesson, definomos la relacion Lesson (1) => Levels (m)
 
-            $table->unsignedInteger('level_id');
+            $table->bigInteger('level_id')->unsigned();
             //si borro un registro de Lesson por efecto de cascada tambien se borra el registo vinculado con Levels
-            $table->foreign('level_id')->references('id')->on('levels')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
