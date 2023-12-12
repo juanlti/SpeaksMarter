@@ -91,8 +91,8 @@ class RoleSeeder extends Seeder
         $role_editor->syncPermissions($permission_editor);
 
         //OTRA FORMA  DE ASIGNAR LOS PERMISOS, ES DE  Un Role ---> un Permission (o  1  --> 1 )
-
-        $role_editor->givePermissionTo($permission_update_category);
+        // si solo quiero asignar un permisso de manera individual
+      //  $role_editor->givePermissionTo($permission_update_category);
 
 
 

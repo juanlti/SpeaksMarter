@@ -19,7 +19,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-// La entidad User contiene roles entre otros
+
+// La entidad User tiene la clase HasRoles, por lo tanto utiliza los metodos de esa clase, ejemplo:
+// $variable->assignRole('unRole')
+// $variable->syncPermissions($unArregloPermissions)
+// $variable->givePermissionTo($unSoloPermissions)
     /**
      * The attributes that are mass assignable.
      *
