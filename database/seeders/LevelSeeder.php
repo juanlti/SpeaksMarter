@@ -11,7 +11,7 @@ class LevelSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): Level
+    public function run()
     {
         // los objetos Levels
         Level:: create(['name'=>'A1']);

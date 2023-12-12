@@ -19,7 +19,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-
+// La entidad User contiene roles entre otros
     /**
      * The attributes that are mass assignable.
      *
