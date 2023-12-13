@@ -14,6 +14,19 @@ class DatabaseSeeder extends Seeder
     {
             //llamo al conjunto de seeder
 
-        $this->call(LevelSeeder::class);
+
+        $this->call([
+            // primera carga: Objetos de la entidad Levels
+            LevelSeeder::class,
+            // segunda carga: Objetos de la entidad Rols
+            RoleSeeder::class,
+            // tercera carga: Objetos de la entidad Users
+            UserSeeder::class,
+
+        ]);
+
+
+
+
     }
 }
