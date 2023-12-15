@@ -5,7 +5,8 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 <template>
 <div>
     <button v-if="$page.props.user.permissions.includes('create role')">Crear Roles</button>
-    <button v-if="$page.props.user.permissions.includes('create lessons')">Crear Roles</button>
+    <button v-if="$page.props.user.permissions.includes('create lessons')">Crear Lecciones</button>
+    <button v-if="$page.props.user.permissions.includes('create lessons')">Crear Categorias</button>
 </div>
 </template>
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +35,13 @@ Route::middleware([
     // GROUP , CONJUUNTO DE RUTAS + COMPONENTES PARA LOS USUARIOS QUE PREVIAMENTE FUERON VERIFICADOS
 
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    //resource ,agrupa todas las operaciones ( CRUD )  de un elemento establecido por su controlador
+    Route::resource('/categories',CategoryController::class);
+    Route::resource('/lessons',LessonController::class);
+    Route::resource('/roles',RoleController::class);
+
+
+
 
 });
 

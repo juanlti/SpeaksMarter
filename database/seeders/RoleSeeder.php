@@ -32,7 +32,7 @@ class RoleSeeder extends Seeder
         //importacion requerida => use Spatie\Permission\Models\Permission;
         $permission_create_role=Permission::create(['name'=>'create role']);
         // acciones de leer un rol => adm
-        $permission_read_role=Permission::create(['name'=>'red roles']);
+        $permission_read_role=Permission::create(['name'=>'read roles']);
         // acciones de actualizar un rol => adm
         $permission_update_role=Permission::create(['name'=>'update roles']);
         // acciones de borrar un rol => adm

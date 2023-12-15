@@ -52,6 +52,29 @@ const logout = () => {
                                     Dashboard
                                 </NavLink>
                             </div>
+                            <!-- ELEMENTOS PARTE SUPERIOR  -->
+                            <!-- v-if="$page.props.user.permissions.includes('read categories')" RESTRINGE EL ELEMENTO A MOSTRAR, SEGUN CORRESPONDA -->
+                            <!-- Si el usuario  que esta logeado, y tiene el permiso de read categories entonces lo MUESTRA -->
+                            <!-- Si el usuario que esta logeado, no tiene el permiso de  read categories  entonces NO lo muestra -->
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="$page.props.user.permissions.includes('read categories')">
+                                <NavLink :href="route('categories.index')" :active="route().current('categories.*')">
+                                    <!-- href="route('categories.index') => redirecciono al metodo index del contralador categorias -->
+                                    Categorias
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="$page.props.user.permissions.includes('read lessons')">
+                                <NavLink :href="route('lessons.index')" :active="route().current('lessons.*')">
+                                    <!-- href="route('lessons.index') => redirecciono al metodo index del contralador Lecciones -->
+                                    Lecciones
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="$page.props.user.permissions.includes('read roles')">
+                                <NavLink :href="route('roles.index')" :active="route().current('roles.*')">
+                                    <!-- href="route('roles.index') => redirecciono al metodo index del contralador Roles -->
+                                 ijinijijojoj555
+                                </NavLink>
+                            </div>
+
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">

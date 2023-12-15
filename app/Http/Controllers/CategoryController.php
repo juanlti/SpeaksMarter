@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +12,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        // sin paginar
+       //$allData=Category::all();
+        // con paginacion
+        $categorias=Category::paginate(25);
+
+        //return en laravel (blade)
+       //return view('index',compact('categorias'));
+
+        // return en Vue, a un elemento con arreglo en parametros
+        return inertia('Categories/Index',['categories'=>$categorias]);
+        //OBSERVACION: inertia SIEMPRE nos retorna a la carpeta de Pages
     }
 
     /**
