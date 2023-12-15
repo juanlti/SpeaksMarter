@@ -27,7 +27,6 @@ class UserSeeder extends Seeder
         //  $admin (USER) --> Rol adm
         $admin->assignRole('admin');
 
-
         // editor
         $editor=User::create([
             'name'=>'editor',

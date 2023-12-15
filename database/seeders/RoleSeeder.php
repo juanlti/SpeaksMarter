@@ -30,7 +30,7 @@ class RoleSeeder extends Seeder
         // INICIO DE ROLES (CRUD)
         //  acciones de crear roles => adm
         //importacion requerida => use Spatie\Permission\Models\Permission;
-        $permission_create_role=Permission::create(['name'=>'create role']);
+        $permission_create_role=Permission::create(['name'=>'create roles']);
         // acciones de leer un rol => adm
         $permission_read_role=Permission::create(['name'=>'read roles']);
         // acciones de actualizar un rol => adm

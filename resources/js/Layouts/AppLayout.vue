@@ -70,16 +70,28 @@ const logout = () => {
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="$page.props.user.permissions.includes('read roles')">
                                 <NavLink :href="route('roles.index')" :active="route().current('roles.*')">
-                                    <!-- href="route('roles.index') => redirecciono al metodo index del contralador Roles -->
-                                 ijinijijojoj555
+                                    <!-- href="route('categories.index') => redirecciono al metodo index del contralador categorias -->
+                                    Roles
                                 </NavLink>
                             </div>
+                            <!--   <div class="informacionDePropagacion">{{$page.props.user.permissions}}</div> -->
 
-                        </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ms-6">
-                            <div class="ms-3 relative">
-                                <!-- Teams Dropdown -->
+
+
+
+
+
+
+
+
+
+
+                   </div>
+
+                   <div class="hidden sm:flex sm:items-center sm:ms-6">
+                       <div class="ms-3 relative">
+                           <!-- Teams Dropdown -->
                                 <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">

@@ -38,6 +38,8 @@ defineProps({
     color: white;
     padding:20px;
     margin:5px;
+    height:200px;
+    width:600px;
 
 }
 

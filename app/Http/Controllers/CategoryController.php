@@ -22,7 +22,7 @@ class CategoryController extends Controller
 
         // return en Vue, a un elemento con arreglo en parametros
         return inertia('Categories/Index',['categories'=>$categorias]);
-        //OBSERVACION: inertia SIEMPRE nos retorna a la carpeta de Pages
+        //OBSERVACION: inertia SIEMPRE nos retorna a la carpeta (o directorio)  Pages
     }
 
     /**
