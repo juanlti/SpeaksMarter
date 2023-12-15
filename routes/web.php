@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +15,23 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//RUTAS
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// SIN AUTENTICACION
+// (HOME)
+Route::get('/',[DashboardController::class,'index'])->name('index');
 
+
+// CON AUTENTICACION
 Route::middleware([
-    'auth:sanctum',
+    //METODO DE AUTENTICACION: "SANCTUM"
+    'auth:sanctum', // CONFIGURACION DE AUTENTICACION: "auth_session" DE "JETSTREAM"
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    // GROUP , CONJUUNTO DE RUTAS + COMPONENTES PARA LOS USUARIOS QUE PREVIAMENTE FUERON VERIFICADOS
+
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
 });
+
