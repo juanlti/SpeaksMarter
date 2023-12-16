@@ -3,6 +3,10 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 </script>
 
 <template>
+    <h1>Hello world</h1>
+</template>
+<!--
+<template>
 <div>
     <button v-if="$page.props.user.permissions.includes('create role')">Crear Roles</button>
     <button v-if="$page.props.user.permissions.includes('create lessons')">Crear Lecciones</button>
@@ -20,3 +24,4 @@ button  {
 
 }
 </style>
+-->
