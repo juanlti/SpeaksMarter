@@ -44,6 +44,12 @@ const form = useForm({
                     <CategoryForm :form="form" @submit="form.post(route('categories.store'))"/>
 
                     <form action="" @submit.prevent="form.post('/categories')" enctype="multipart/form-data"></form>
+                    <!-- comprension del codigo de arriba linea 46.  -->
+                    <!-- 1) cliente ejecuta la accion de crear/modificar un usaurio..  -->
+                    <!-- 2) Se recibe la poticion desde la pantalla del usuario a las rutas.  -->
+                    <!-- 3) ahi mismo se verifica si el suario esta logeado o no, y demas controles -->
+                    <!-- 4) Desde aca (Create), les cnmparte los datos por Props de los formularios a la pagina de rendirizado -->
+                    <!-- 5) Por ultimo, una vez recibido los datos ingresado en otra pagina. Nosotros verificamos los daots antes de guardarlos en BD-->
 
                 </div>
 
