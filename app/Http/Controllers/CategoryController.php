@@ -30,7 +30,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        //Pintamos la vista en donde se cargan los datos para el create
+        return inertia('Categories/Create');
     }
 
     /**
@@ -38,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //guardamos el  objeto en el sistema, todavia falta subirlo a la bd
     }
 
     /**
