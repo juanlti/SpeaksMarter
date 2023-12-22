@@ -7,6 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+![image](https://github.com/juanlti/SpeaksMarter/assets/47389717/5786844a-2097-4077-8b43-e3d4eeedc5b3)
+
+
 	Practica N1:    Laravel con Vue
 
 
