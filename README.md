@@ -9,7 +9,7 @@
 
 ![image](https://github.com/juanlti/SpeaksMarter/assets/47389717/5786844a-2097-4077-8b43-e3d4eeedc5b3)
 
-![image](https://github.com/juanlti/SpeaksMarter/assets/47389717/75c073fd-b6d6-471f-be47-7f7b3b3ac40d)
+![image](https://github.com/juanlti/SpeaksMarter/assets/47389717/d69b20e4-df24-4a9d-bed8-90b381dd7d7e)
 
 
 
