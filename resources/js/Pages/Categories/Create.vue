@@ -15,7 +15,8 @@ import AppLayout from '@/Layouts/AppLayout.vue'
 import CategoryForm from '@/Components/Categories/Form.vue'
 
 const form = useForm({
-    name: ''
+    //recibe un como nombre de categoria un vacio
+    name: " "
 })
 
 </script>
@@ -25,11 +26,12 @@ const form = useForm({
     <AppLayout>
         <template #header>
             <!--  Propio -->
-            <h1 class="font-semi-bold text-xl text-gray-800 leading-tight"> Crear Categorias</h1>
+            <h1 class="font-semi-bold text-xl text-gray-800 leading-tight" > Crear Categorias</h1>
 
 
         </template>
         <!-- FORMULARIO -->
+
         <div class="py-12">
             <!-- ancho maximo-->
             <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8">
@@ -41,9 +43,15 @@ const form = useForm({
                  <div class="p-6 bg-white border-b border-gray-200"></div>
                         <!--Le pasamos los datos ingresados por el usaurio para crear una categoria al componente  CategoryForm-->
                     <!-- COMUNICACION ASCENDENTE -->
+                    <!-- Create (con los form)   redirige  a CategoryFrom ) -->
                     <CategoryForm :form="form" @submit="form.post(route('categories.store'))"/>
+                    <!-- Recorrido -->
+                    <!-- a) "realizamos la peticion a Crear Category, pintamos la pagina que se llama "CategoryForm"-->
+                    <!-- b) y la pagina  CategoryForm recibe un  Props de tipo "Form"-->
+                    <!-- c) accionamos el boton de (update/create) cuando finalizamos la carga de los datos-->
+                    <!-- d) Pagina CategoryForm se envia los datos ingresados a Create con un Submit (@submit="form.post(route('categories.store'), y este lo envia al ControladorStore por POST -->
+                    <!-- COMUNICACION VERTICAL -->
 
-                    <form action="" @submit.prevent="form.post('/categories')" enctype="multipart/form-data"></form>
                     <!-- comprension del codigo de arriba linea 46.  -->
                     <!-- 1) cliente ejecuta la accion de crear/modificar un usaurio..  -->
                     <!-- 2) Se recibe la poticion desde la pantalla del usuario a las rutas.  -->

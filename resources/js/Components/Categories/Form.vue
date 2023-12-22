@@ -1,4 +1,3 @@
-
 <script>
 export default {
     name: "CategoryForm"
@@ -21,18 +20,25 @@ import InputLabel from '@/Components/InputLabel.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
 //Importo los inputs (ingreso de datos)
 import TextInput from '@/Components/TextInput.vue'
-defineProps({
-    form: {
-        type:Object,
-        required:true,
-    },
-    updating: {
-        type: Boolean,
-        required: false,
-        default: false,
-    },
 
-})
+
+    defineProps({
+                    form: {
+                        type: Object,
+                        required:true,
+
+                    },
+                    updating: {
+                        type: Boolean,
+                        required: false,
+                        default: false,
+                    },
+
+                },)
+
+
+
+
 
 defineEmits(['submit'])
 
@@ -45,36 +51,38 @@ defineEmits(['submit'])
 <!-- defineProps recibe de        <CategoryForm :form="form"  -->
 
 <template>
+    <!-- Form (ingresa los datos solicitados y esto se pintan en el componente FormSectio page ->
+        <FormSection @submitted="$emit('submit')">
+        <!- ACA INGRESEMOS LOS DATOS DE LA CUENTA NUEVA / DATOS A MODIFICAR -->
 
     <FormSection @submitted="$emit('submit')">
-    <!-- ACA INGRESEMOS LOS DATOS DE LA CUENTA NUEVA / DATOS A MODIFICAR -->
-
         <template #title>
             <!-- CONDICIONAL  TERMARIA-->
-            {{updating? 'Update ': 'Create'}}
+            {{ updating ? 'Update ' : 'Create' }}
 
         </template>
         <template #description>
-            {{updating? 'Update The Selected Category' : 'Create a New Category From Scratch' }}
+            {{ updating ? 'Update The Selected Category' : 'Create a New Category From Scratch' }}
+
         </template>
-       <template #form>
+        <h2>{{ "We" }}</h2>
+        <h2>{{ form.name }}</h2>
+        <template #form>
             <div class="col-span-6 sm:col-span-6">
                 <!-- Pintamos los componentes necesarios para el ingreso de los datos -->
-               <InputLabel for="name" value="Name"/>
-                <TextInput id="name" v-model="form.name" type="text" automplete="name" class="mt-1 block w-full"/>
-                <!-- mostrar un error si lo hubiera -->
-                <InputError :message="$page.props.erros.name" class="mt-2"/>
-                <!-- :message="$page.props.erros.name MUESTRA QUE INPUTS ESTA EL ERROR -->
-
-
-
+                <InputLabel for="name" value="Name"/>
+                <TextInput id="name" v-model="form.name" type="text" autocomplete="name" class="mt-1 block w-full"/>
+                <!-- Mostrar un error si lo hubiera -->
+                <InputError v-if="$page.props.errors && $page.props.errors.name" :message="$page.props.errors.name"
+                            class="mt-2"/>
+                <!-- :message="$page.props.errors.name" muestra qué input tiene el error -->
             </div>
+        </template>
 
-       </template>
         <!-- CODIGO DE LAS ACCIONES  ENVIAR, CANCELAR  ... BOTONES -->
         <template #actions>
             <PrimaryButton>
-                {{}}
+                {{ updating ? 'Update' : 'Create' }}
 
             </PrimaryButton>
         </template>

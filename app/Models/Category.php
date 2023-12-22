@@ -10,11 +10,18 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
 
+
+    ];
 
     //defino la relacion
     public function lessons():BelongsToMany{
         return $this->belongsToMany(Lesson::class);
     }
 
+
+    public function id():int {
+        return $this->id();
+    }
 }

@@ -6,7 +6,8 @@ export default {
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
 import {Link} from '@inertiajs/vue3';
-
+import { Inertia } from '@inertiajs/inertia';
+import {ref} from "vue";
 
 defineProps({
 
@@ -15,13 +16,23 @@ categories:{
     required:true,
 }
 })
-const deleteCategory = id =>{
-    if(confirm('Desea confirmar la eliminacion ?')){
 
-        Inertia.delete(route('categories.destroy',id));
+const deleteCategory = id => {
+    if (confirm('Desea confirmar la eliminacion ?')) {
+
+        Inertia.delete(route('categories.destroy', id));
+
     }
-
 }
+
+
+
+
+
+
+
+
+
 </script>
 <!-- DEFINO Y ALMACENO LAS PROPS  -->
 <!-- guardo todos los parametros que recibe el index-->
@@ -36,7 +47,7 @@ const deleteCategory = id =>{
             <!--  TEMPLATE DEL ENCABEZADO, SLOT CON  NOMBRE (ESPECIFICADO) -->
 
             <!--  Propio -->
-            <h1 class="font-semi-bold text-xl text-gray-800 leading-tight">Categories</h1>
+            <h1 class="font-semi-bold text-xl text-gray-800 leading-tight" >Categories</h1>
         </template>
 
         <!--  TEMPLATE DEL BODY (MAIN) PQ EL SLOT NO ESTA ESPECIFICADO-->
@@ -47,10 +58,12 @@ const deleteCategory = id =>{
                 <!-- ancho maximo 7-->
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- caja fondo blanco-->
-                    <div class="flex justify-between">
+                    <!-- si el usuario tiene permiso para crear categorias, se le mostrara el boton con el enlace de crear una categoria -->
+                    <!-- con esto nos aseguramos que los usuarios con permisos de leer una categoria no puedan crear una -->
+                    <div class="flex justify-between"  v-if="$page.props.user.permissions.includes('create categories')">
                         <!--TODO CREAR CATEGORIA-->
                         <Link :href="route('categories.create')" class="text-white bg-indigo-500 hover:bg-indigo-700 rounded py-2 px-4">
-                            Create category
+                            Crear una Categoria
                           <!--  {{categories.data }} -->
                         </Link>
                     </div>
@@ -69,12 +82,13 @@ const deleteCategory = id =>{
                                 </div>
                                 <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                                     <p class="text-md leading-6 text-gray-900">
-                                        <Link :href="route('categories.edit',category.id)">Edit</Link>
+
+                                        <Link class="py-2 px-4" :href="route('categories.edit', category.id)"  v-if="$page.props.user.permissions.includes('update categories')">Edit</Link>
                                         <!-- FORMA 1 DE TENER LA ACCION DE BORRAR
                                         <Link :href="route('categories.destroy',category.id)">Delete</Link>
                                         -->
 
-                                        <Link @click="deleteCategory(category.id)">Delete </Link>
+                                        <Link  class="py-2 px-4 text-red-600" @click="deleteCategory(category.id)" v-if="$page.props.user.permissions.includes('delete categories')">Delete </Link>
                                     <!--FORMA 2 , UTILIZAMOS UNA FUNCION PARA CONFIRMAR SI REALMENTE DESEA BORRAR UNA CATEGORIA -->
                                     </p>
                                 </div>
@@ -84,6 +98,19 @@ const deleteCategory = id =>{
 
                             </ul>
 
+                    </div>
+                    <div class="flex justify-between mt-2">
+
+                        <Link v-if="categories.current_page>1" :href="categories.prev_page_url" class="py-2 px-4 rounded">
+                           ANTERIOR
+                            <!--  {{categories.data }} -->
+                        </Link>
+                        <div v-else></div>
+                        <Link  v-if="categories.current_page<categories.last_page" :href="categories.next_page_url" class="py-2 px-4 rounded">
+                            SIGUIENTE
+                            <!--  {{categories.data }} -->
+                        </Link>
+                        <div v-else></div>
                     </div>
                 </div>
             </div>

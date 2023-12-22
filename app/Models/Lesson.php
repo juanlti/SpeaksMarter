@@ -11,7 +11,10 @@ class Lesson extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
 
+
+    ];
 
     //defino la relacion
 
