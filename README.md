@@ -7,60 +7,87 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+	Practica N1:    Laravel con Vue
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Visión general del sistema: 
+la empresa Speak Smarter, desea desarrollar un sistema para los diferentes tipos de usuarios, accedan al material de ingles, este material puede ser, videos, pdfs, clases y demás. Cada cliente, puede elegir el plan de estudio
+Membresía gratuita (no es necesario tener una suscripción): ver contenido de prueba.
+Membresía pagada (parcial): todo el contenido menos los ejercicios interactivos
+Membresía pagada (total): todo el contenido.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ecosistema: Laravel (backEnd), Vue (frontEnd)
+Paquetes: jetstream (sesiones para usuarios), Spatie  (permisos y roles) 
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Las clases, se componen de un archivo en pdf  (teoría), y otro formato interactivo (propio del sistema), para los ejercicios.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Requerimientos funcionales:
 
-## Laravel Sponsors
+1_ Registro de un nuevo usuario:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+A la hora de registrarse en el sitio, cada usuario debe ingresar lo siguientes datos:
 
-### Premium Partners
+nombre
+apellido
+correo electrónico
+clave
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+2_ Pagar una membresía
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+A la hora de realizar un pago por parte de un usuario, este deberá elegir que tipo de membresía desea obtener. Debe ingresar los siguientes datos:
 
-## Code of Conduct
+selecionar tipo de membresia
+ ingresar los datos de tarjeta
+cantidad de cuotas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3_ Sistema de roles
 
-## Security Vulnerabilities
+Al momento de ingresar los datos de logueo, el sistema determinara que rol cumple en el sistema, y en base a ello, el usuario  obtendrá la configuración pertinente 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+correo electrónico
+clave
 
-## License
+4_ Buscador  de clases
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+El sistema tiene un buscador de clases con multifiltrado, para que los usuarios realicen la búsqueda de manera especifica.
+
+Usuario debe selecionar el ámbito de la clase a buscar, ejemplo: “Clases de programación”
+Usuario selecciona el nivel de las clases, seleccionado: B1,B2, y demas
+5_ Registro de usuarios administrativos
+
+Los usuarios administrador, debe ingresar los siguientes datos:
+
+dni
+credencial (es un id otorgado por la empresa)
+nombre
+apellido
+correo
+clave
+
+6_ Usuarios Administradores creación de clases y actualizaciones
+
+subir contenido
+clases interactivas con Adobe captivate
+actualizar contenido
+
+
+
+Requerimientos no funcionales:
+
+Seguridad a la hora de realizar transacciones de dinero.
+ Organización-> Operacionales (toda operación debe ser atómica)
+
+Asegurar la protección y privacidad de los datos del cliente
+ Externos->Legales->Protección/Seguridad.
+
+Interfaz facil de usar, para todo tipo de usuarios, con o sin experiencia en el uso de la plataformas web.
+
+Beneficio del sistema
+	Los beneficios que se obtienen con el sistema de Speak Smarter, son los siguientes
+Eficiencia y autogestión para los interesados en adquirir este servicio.
+
+
+
